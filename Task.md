@@ -1,0 +1,25 @@
+Tasks:
+-[ ] valid header menu option
+-[ ] RTL layout for header
+-[ ] Login/SignUp
+-[ ] AboutUs page
+-[ ] Search box in all page
+-[ ] Commenting
+-[ ] Rating (star selecting)
+-[ ] Favorite
+-[x] Footer Redesign
+-[ ] valid data for Footer
+-[ ] Persian background instead of hollywood
+-[x] Redesign home page
+-[ ] Adding Light Theme
+-[ ] RTL for movie list and grids
+-[ ] scrap Cast for a movie and serial
+-[ ] Redesign celebrity single page
+-[ ] Redesign movie single page
+-[ ] Connection between pages
+-[x] fixed auto download in first page
+-[x] fixed missed fonts error
+-[ ] merge 3 page of celebrity list and grid
+-[ ] generate movie list, grid and single view
+-[ ] Text with image for article body
+

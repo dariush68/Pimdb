@@ -1,0 +1,544 @@
+<!-- use base html template -->
+{% extends 'Core/base.html' %}
+{% load static %}
+{% load jalali_tags %}
+{% block title %}
+
+    <!-- Basic need -->
+    <title>PIMDB - خانه</title>
+
+{% endblock %}
+{% block description %}
+    <meta name="description" content="بانک اطلاعات فیلم، سریال و تئاتر ایران (PIMDB Persian Internet Movie DataBase)"/>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+    <!-- BEGIN | Slider -->
+    <div class="d-none slider movie-items">
+        <div class="container">
+            <div class="row">
+
+                <!-- social-link -->
+                <div class="social-link" dir="rtl">
+                    <p>ما را دنبال کنید: </p>
+                    <a href="#"><i class="ion-social-facebook"></i></a>
+                    <a href="#"><i class="ion-social-twitter"></i></a>
+                    <a href="https://www.instagram.com/pimdb.ir/" target="_blank"><i class="ion-social-instagram-outline"></i></a>
+                    <a href="#"><i class="ion-social-youtube"></i></a>
+                </div>
+
+                <!-- multiItem Slider -->
+                <div id="multiItemSlider" class="slick-multiItemSlider">
+
+
+                    {% for movie in spolight_movie %}
+                        <div class="movie-item">
+                            <div class="mv-img">
+                                <a href=""><img src="{{ movie.movie.image.url }}" alt="" width="285" height="437"></a>
+                            </div>
+                            <div class="title-in">
+                                <div class="cate">
+                                    {% for genre in movie.movie.movieGenre.all %}
+                                        <span class="blue ml-1 mr-1"> <a class="m-1" href="#"> {{ genre.genre.title }} </a> </span>
+                                    {% endfor %}
+                                </div>
+                                <h6><a href="{% url 'Core:movie-single' movie.movie.id%}">{{ movie.movie.title }}</a></h6>
+                                <p><i class="ion-android-star"></i><span>{{ movie.movie.rate }}</span> /10</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END | Slider -->
+
+    <!-- BEGIN | THEATER & TV -->
+    <div class="movie-items">
+        <div class="container">
+            <div class="row ipad-width">
+
+                <!-- left  sec -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        {% include 'Core/Utils/Ads.html' %}
+                        {% include 'Core/Utils/spolightActrs.html' %}
+                    </div>
+                </div>
+
+                <!-- right list -->
+                <div class="col-md-8">
+                    <div class="title-hd" dir="rtl">
+                        <h2>سینما</h2>
+                        <a href="{% url 'Core:moviegrid' %}" class="viewall">
+                            مشاهده همه
+                            <i class="ion-ios-arrow-left"></i>
+                        </a>
+                    </div>
+
+                    <div class="tabs">
+                        <ul class="tab-links" dir="rtl">
+                            <li class="active"><a href="#tab1">#محبوب</a></li>
+                            <li><a href="#tab2"> #مرحله پیش ساخت</a></li>
+                            <li><a href="#tab3">  #بیشترین امتیاز  </a></li>
+                            <li><a href="#tab4"> #بیشترین بازدید</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <!-- movies_populate -->
+                            <div id="tab1" class="tab active">
+                                <div class="row">
+                                    <div id="slick-multiItem-populate" class="slick-multiItem">
+
+                                        {% for movie in movies_populate %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if movie.image %}
+                                                            <img src="{{ movie.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="{% url 'Core:movie-single' movie.id%}"> بازدید <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="#">{{ movie.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ movie.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item5.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Interstellar</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- movies_preBuild -->
+                            <div id="tab2" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for movie in movies_preBuild %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if movie.image %}
+                                                            <img src="{{ movie.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="#">{{ movie.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ movie.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item5.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Interstellar</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- movies_topRate -->
+                            <div id="tab3" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for movie in movies_topRate %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if movie.image %}
+                                                            <img src="{{ movie.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="#">{{ movie.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ movie.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item5.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Interstellar</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- movies_topView -->
+                            <div id="tab4" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for movie in movies_topView %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if movie.image %}
+                                                            <img src="{{ movie.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="#">{{ movie.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ movie.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item5.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Interstellar</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="title-hd" dir="rtl">
+                        <h2>تلویزیون</h2>
+                        <a href="#" class="viewall">مشاهده همه <i class="ion-ios-arrow-left"></i></a>
+                    </div>
+
+                    <div class="tabs">
+                        <ul class="tab-links-2" dir="rtl">
+                            <li class="active"><a href="#tab21">#محبوب</a></li>
+                            <li><a href="#tab22"> #مرحله پیش ساخت</a></li>
+                            <li><a href="#tab23">  #بیشترین امتیاز  </a></li>
+                            <li><a href="#tab24"> #بیشترین بازدید</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <!-- series_populate -->
+                            <div id="tab21" class="tab active">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for series in series_populate %}
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    {% if series.image %}
+                                                        <img src="{{ series.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                    {% else %}
+                                                        <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> مشاهده <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="{% url 'Core:seriessingle' %}">{{ series.title }}</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>{{ series.rate }}</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item3.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Die hard</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- series_preBuild -->
+                            <div id="tab22" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for series in series_preBuild %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if series.image %}
+                                                            <img src="{{ series.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="moviesingle.html"> مشاهده <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="{% url 'Core:seriessingle' %}">{{ series.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ series.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item3.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Die hard</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- series_topRate -->
+                            <div id="tab23" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for series in series_topRate %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if series.image %}
+                                                            <img src="{{ series.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="moviesingle.html"> مشاهده <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="{% url 'Core:seriessingle' %}">{{ series.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ series.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item3.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Die hard</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- series_topView -->
+                            <div id="tab24" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+
+                                        {% for series in series_topView %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% if series.image %}
+                                                            <img src="{{ series.image.url }}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% else %}
+                                                            <img src="{% static 'Core/images/img_placeholder.png'%}" alt="" style="object-fit: cover; width: 185px; height: 240px">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a  href="moviesingle.html"> مشاهده <i class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <h6><a href="{% url 'Core:seriessingle' %}">{{ series.title }}</a></h6>
+                                                        <p><i class="ion-android-star"></i><span>{{ series.rate }}</span> /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{% static 'Core/images/uploads/mv-item3.jpg' %}" alt="" width="185" height="284">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">Die hard</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END | THEATER & TV -->
+
+    <!-- BEGIN | IN THEATER -->
+    <!--div class="trailers">
+        <div class="container">
+            <div class="row ipad-width" dir="rtl">
+                <div class="col-md-12">
+                    <div class="title-hd">
+                        <h2>در حال اکران</h2>
+                        <a href="#" class="viewall">
+                            مشاهده همه
+                            <i class="ion-ios-arrow-left"></i></a>
+                    </div>
+                    <div class="videos">
+                        <div class="slider-for-2 video-ft">
+
+                            {% for movie in movieInTheatre %}
+                                <div>
+                                    <iframe class="item-video" src="#" data-src="{{ movie.movie.movieTrailer.all.first.external_url }}"></iframe>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="slider-nav-2 thumb-ft">
+
+                            {% for movie in movieInTheatre %}
+                                <div class="item">
+                                    <div class="trailer-img">
+                                        <img src="{{ movie.movie.image.url }}"  alt="photo by Barn Images" width="4096" height="2737">
+                                    </div>
+                                    <div class="trailer-infor">
+                                        <h4 class="desc">{{ movie.movie.title }}</h4>
+                                        <p>{{ movie.movie.duration|default_if_none:"" }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div-->
+    <!-- END | IN THEATER -->
+
+    <!-- latest new v1 section-->
+    <div class="latestnew">
+        <div class="container">
+            <div class="col-md-12" dir="rtl">
+                <div class="ads adsv2">
+                    <img src="{% static 'Core/images/cover.jpg' %}" alt="">
+                </div>
+                <div class="title-hd">
+                    <h2>آخرین اخبار</h2>
+                    <a href="bloggrid.html" class="viewall">مشاهده همه <i class="ion-ios-arrow-left"></i></a>
+                </div>
+                <div class="latestnewv2">
+
+                    {% for item_news in news %}
+                        <div class="blog-item-style-2">
+                            <a href="blogdetail.html"><img src="{{ item_news.thumbnail.url }}" alt="" style="height: 200px; object-fit: cover"></a>
+                            <div class="blog-it-infor">
+                                <h3><a href="{% url 'Core:blogdetail' item_news.id %}">{{ item_news.title }}</a></h3>
+                                <span class="time">{{ item_news.created_on|to_jalali:'%y/%m/%d' }}</span>
+                                <p>{{ item_news.abstract|truncatechars:100 }} ...</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end of latest new v1 section-->
+
+    <!-- end of body block -->
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'Core/js/index.js' %}"></script>
+
+{% endblock %}

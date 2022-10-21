@@ -1,0 +1,18 @@
+
+{% load static %}
+
+    <div class="hero common-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hero-ct">
+                        <h1>{{ page_title }}</h1>
+                        <ul class="breadcumb">
+                            <li> {{ page_url }} <span class="ion-ios-arrow-left"></span> </li>
+                            <li class="active"><a href="{% url 'Core:index' %}">خانه</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

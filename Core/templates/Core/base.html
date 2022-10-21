@@ -1,0 +1,305 @@
+{#{% load analytical %}#}
+<!DOCTYPE html>
+<html lang="en">
+
+{% spaceless %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block description %}
+
+    {% endblock %}
+{#    <link rel="stylesheet" href="{% static '/static/Core/css/bootstrap.min.css' %}">#}
+    {% load static %}
+{#    <link rel="stylesheet" href="{% static 'Core/css/bootstrap.min.css' %}" >#}
+{#    <link rel="stylesheet" href="{% static 'Core/css/mdb.min.css' %}" >#}
+    <link rel="stylesheet" href="{% static 'Core/css/fontawesome.min.css' %}">
+{#    <link rel="stylesheet" href="{% static 'Core/css/animate.min.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'Core/css/animate.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'Core/styles.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'Core/css/product-companies-style.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'Core/css/upload-product-image.css' %}">#}
+    <link rel="stylesheet" href="{% static 'Core/css/all.css' %}">
+{#    <link rel="stylesheet" href="{% static 'Core/css/search-box.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'Core/css/header-navbar.css' %}">#}
+{#    <script src='https://www.google.com/recaptcha/api.js'></script>#}
+    <style>
+        @font-face {
+            src: url("../../static/Core/fonts/IRANSANS.TTF");
+            font-family: iranSansFaNum;
+        }
+    </style>
+
+    <!-- Basic need -->
+
+    <meta charset="UTF-8">
+    <meta name="description" content="بانک اطلاعات فیلم ها و سریال های ایرانی - PIMDB, Persian Internet Movie DataBase">
+    <meta name="keywords" content="PIMDB">
+    <meta name="author" content="">
+    <link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+    <!-- Mobile specific meta -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="{% static 'Core/css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'Core/css/style.css' %}">
+
+    {% block title %}
+
+    {% endblock %}
+
+    <link rel="icon" type="image/png" href="{% static 'Core/images/pimdb512.png' %}" />
+
+
+
+{#    {% analytical_head_top %}#}
+{##}
+{#    {% analytical_head_bottom %}#}
+</head>
+{% endspaceless %}
+
+{% spaceless %}
+<body style="direction: ltr ; text-align: right ; font-family: IRANSans,serif !important; font-size: 14px" id="home">
+
+    <!--preloading-->
+    <div id="preloader">
+        <img class="logo" src="{% static 'Core/images/pimdb512.png' %}" alt="" width="119" height="58">
+        <div id="status">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!--login form popup-->
+{#    {% include 'Core/Utils/login.html' %}#}
+    <!--end of login form popup-->
+    <!--signup form popup-->
+{#    {% include 'Core/Utils/signup.html' %}#}
+    <!--end of signup form popup-->
+
+    <!-- BEGIN | Header -->
+    <header class="ht-header">
+        <div class="container">
+
+            <!-- menu-->
+            <nav class="navbar navbar-default navbar-custom" dir="rtl">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header logo">
+                    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <div id="nav-icon1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <a href="{% url 'Core:index' %}"><img class="logo" src="{% static 'Core/images/pimdb512.png' %}" alt="" width="119" height="58"></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav flex-child-menu menu-left">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
+                                خانه <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="index-2.html">خانه 01</a></li>
+                                <li><a href="homev2.html">خانه 02</a></li>
+                                <li><a href="homev3.html">خانه 03</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                فیلم ها <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Movie grid<i class="ion-ios-arrow-forward"></i></a>
+                                    <ul class="dropdown-menu level2">
+                                        <li><a href="{% url 'Core:moviegrid' %}">Movie grid</a></li>
+                                        <li><a href="{% url 'Core:moviegridfw' %}">movie grid full width</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'Core:movielist' %}">Movie list</a></li>
+                                <li><a href="{% url 'Core:moviesingle' %}">Movie single</a></li>
+                                <li class="it-last"><a href="seriessingle.html">Series single</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                بازیگران <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="{% url 'Core:celebritygrid' %}">celebrity grid 01</a></li>
+                                <li><a href="{% url 'Core:celebritygridsmall' %}">celebrity grid 02 </a></li>
+                                <li><a href="{% url 'Core:celebritylist' %}">celebrity list</a></li>
+                                <li class="it-last"><a href="{% url 'Core:celebritysingle' %}">celebrity single</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                اخبار <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="bloglist.html">blog List</a></li>
+                                <li><a href="bloggrid.html">blog Grid</a></li>
+                                <li class="it-last"><a href="blogdetail.html">blog Detail</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                انجمن <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="userfavoritegrid.html">user favorite grid</a></li>
+                                <li><a href="userfavoritelist.html">user favorite list</a></li>
+                                <li><a href="userprofile.html">user profile</a></li>
+                                <li class="it-last"><a href="userrate.html">user rate</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav flex-child-menu menu-right">
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                صفحات <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="{% url 'Core:comingsoon' %}">Landing</a></li>
+                                <li><a href="{% url 'Core:page404' %}">404 Page</a></li>
+                                <li class="it-last"><a href="comingsoon.html">Coming soon</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">راهنما</a></li>
+                        <li class="loginLink"><a href="#">ورود</a></li>
+                        <li class="btn signupLink"><a href="#">ثبت نام</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+
+            <!-- top search form -->
+            <div class="top-search">
+                <input type="text" placeholder="جست و جو فیلم، سریال و بازیگران" dir="rtl">
+                <select>
+                    <option value="movie">فیلم</option>
+                    <option value="actor">بازیگر</option>
+                    <option value="series">سریال</option>
+                    <option value="theatre">تئاتر</option>
+                    <option value="all">همه</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <!-- END | Header -->
+
+    {% block body %}
+    {% endblock %}
+
+    <!-- footer section-->
+    <footer class="ht-footer">
+        <div class="container">
+            <div class="flex-parent-ft" dir="rtl">
+                <div class="flex-child-ft item1">
+                    <a href="index-2.html"><img class="logo" src="{% static 'Core/images/pimdb512.png' %}" alt="" style="width: 70px; object-fit: contain"></a>
+{#                    <p>5th Avenue st, manhattan<br>#}
+{#                        New York, NY 10001</p>#}
+{#                    <p>Call us: <a href="#">(+01) 202 342 6789</a></p>#}
+                </div>
+                <div class="flex-child-ft item2">
+                    <h4>منابع</h4>
+                    <ul>
+                        <li><a href="#">درباره ما</a></li>
+                        <li><a href="#">PIMDB</a></li>
+                        <li><a href="#">تماس با ما</a></li>
+                        <li><a href="#">بلاگ</a></li>
+                        <li><a href="#">راهنما</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item3">
+                    <h4>قوانین</h4>
+                    <ul>
+                        <li><a href="#">قوانین ما</a></li>
+                        <li><a href="#">سیاست حفظ حریم خصوصی</a></li>
+                        <li><a href="#">امنیت</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item4">
+                    <h4>حساب کاربری</h4>
+                    <ul>
+                        <li><a href="#">اکانت من</a></li>
+                        <li><a href="#">لیست ها</a></li>
+                        <li><a href="#">مجموعه ها</a></li>
+                        <li><a href="#">راهنمای کاربر</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item5">
+                    <h4>خبرنامه</h4>
+                    <p>برای دریافت آخرین اخبار از سمت ما <br> هم اکنون در سیستم خبرنامه ثبت نام کنید.</p>
+                    <form action="#">
+                        <input type="text" placeholder="ایمیل را وارد کنید ...">
+                    </form>
+                    <a href="#" class="btn">
+                        ثبت نام کن
+                        <i class="ion-ios-arrow-back"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="ft-copyright">
+            <div class="ft-left">
+                <p><a target="_blank" href="https://www.pimdb.ir">PIMDB</a></p>
+            </div>
+            <div class="backtotop">
+                <p><a href="#" id="back-to-top">
+                    <i class="ion-ios-arrow-thin-up"></i>
+                    ابتدای صفحه
+                </a></p></div>
+        </div>
+    </footer>
+    <!-- end of footer section-->
+
+
+    <div id="go-to-top" class="d-md-block" style="cursor: pointer">
+        <i class="fa fa-chevron-up"></i>
+    </div>
+
+
+{#    <script src='https://www.google.com/recaptcha/api.js'></script>#}
+{#    <script src="{% static 'Core/js/jquery-3.4.1.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/axios.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/popper.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/bootstrap.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/mdb.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/wow.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/pagination.min.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/smooth-scroll.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/recaptcha.js' %}"></script>#}
+{##}
+{#    <script src="{% static 'Core/js/upload-product-image.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/all.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/header-navbar.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/utils.js' %}"></script>#}
+{#    <script src="{% static 'Core/js/search-products.js' %}"></script>#}
+
+
+    <script src="{% static 'Core/js/jquery.js' %}"></script>
+    <script src="{% static 'Core/js/axios.min.js' %}"></script>
+
+    {% block javascript %}
+    {% endblock %}
+
+    <script src="{% static 'Core/js/plugins.js' %}"></script>
+    <script src="{% static 'Core/js/plugins2.js' %}"></script>
+    <script src="{% static 'Core/js/custom.js' %}"></script>
+
+</body>
+{% endspaceless %}
+
+</html>

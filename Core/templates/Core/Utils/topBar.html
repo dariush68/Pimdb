@@ -1,0 +1,17 @@
+
+{% load static %}
+
+<div class="topbar-filter" dir="rtl">
+
+    <p class="pad-change">تعداد بازیگرها: <span id="actor-count">1,608</span></p>
+    <label>مرتب سازی:</label>
+    <select id="celebrity-select-sort" dir="ltr">
+        <option value="محبوبیت">محبوبیت</option>
+        <option value="بازدید">بازدید</option>
+        <option value="تولد">تاریخ تولد</option>
+    </select>
+    <a href="{% url 'Core:celebritylist' %}" class="list"><i class="ion-ios-list-outline {% if page_url_en == "celebrity-list" %}active{% endif %}"></i></a>
+    <a href="{% url 'Core:celebritygrid' %}" class="grid"><i class="ion-ios-grid-view-outline {% if page_url_en == "celebrity-grid" %}active{% endif %}"></i></a>
+    <a href="{% url 'Core:celebritygridsmall' %}" class="grid" style="border-right: 1px solid #405266;"><i class="ion-grid {% if page_url_en == "celebrity-grid-small" %}active{% endif %}"></i></a>
+</div>
+

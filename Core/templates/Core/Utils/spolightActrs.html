@@ -1,0 +1,22 @@
+
+{% load static %}
+
+<div class="celebrities" dir="rtl">
+    <h4 class="sb-title">هنرمندان فعال</h4>
+
+    {% for spolight_actor in spolight_actors %}
+        <div class="celeb-item">
+            <a href="{% url 'Core:celebrity' spolight_actor.actor_id %}"><img src="{{ spolight_actor.actor.thumbnail.url }}" alt="" style="width: 70px; height: 70px; object-fit: cover"></a>
+            <div class="celeb-author">
+                <h6><a href="#">{{ spolight_actor.actor.name }} {{ spolight_actor.actor.family }}</a></h6>
+                <span>
+                                            {% for cast in spolight_actor.actor.movieCasts.all %}
+                                                {{ cast.cast.title }},
+                                            {% endfor %}
+                                        </span>
+            </div>
+        </div>
+    {% endfor %}
+
+    <a href="#" class="btn">مشاهده تمامی بازیگران<i class="ion-ios-arrow-left"></i></a>
+</div>

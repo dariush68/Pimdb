@@ -1,0 +1,29 @@
+# ignore an entire directory
+/.idea/
+/venv/
+/__pycache__/
+/node_modules/
+/media/
+/static/
+/Core/migrations/
+/tmp/
+/PIMD/settings.py
+
+
+
+# ignore a file type
+# *.json
+*.pyc
+*.sqlite3
+*.xml
+*.log
+
+# add an exception (using !) to the preceding rule to track a specific file
+# !package.json
+
+# ignore a single file
+# mycode.class
+stderr.log
+Panel info.txt
+passenger_wsgi.py
+/ssh key/imp.ppk

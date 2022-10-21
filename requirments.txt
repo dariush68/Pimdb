@@ -1,0 +1,10 @@
+django-cleanup
+djangorestframework
+djangorestframework-simplejwt
+Pillow
+mysqlclient
+jdatetime
+beautifulsoup4
+requests
+urllib3
+django-jalali-date

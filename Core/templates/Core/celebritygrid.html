@@ -1,0 +1,129 @@
+<!-- use base html template -->
+{% extends 'Core/base.html' %}
+{% load static %}
+{% block title %}
+
+    <!-- Basic need -->
+    <title>{{ page_title }}</title>
+    <meta name="description" content="مرجع کامل لیست بازیگران ایرانی"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="website/" />
+    <meta property="og:title" content="{{ page_title }}"/>
+    <meta property="og:description" content="مرجع کامل لیست بازیگران ایرانی"/>
+    <meta property="og:url" content="{{ request.get_host }}{% url 'Core:celebritygridsmall' %}"/>
+    <meta property="og:site_name" content="بانک اطلاعات فیلم و سریال ایران" />
+    <meta property="article:tag" content="{{ page_title }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="مرجع کامل لیست بازیگران ایرانی"/>
+    <meta name="twitter:title" content="{{ page_title }}" />
+
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+    <!-- BEGIN | Head -->
+    {% include 'Core/Utils/head.html' %}
+    <!-- END | Head -->
+
+    <!-- celebrity grid v1 section-->
+    <div class="page-single">
+        <div class="container">
+            <div class="row ipad-width2">
+
+                <!-- filter -->
+                <div class="col-md-3 col-xs-12 col-sm-12">
+                    {% include 'Core/Utils/SideBar.html' %}
+                </div>
+
+                <div class="col-md-9 col-sm-12 col-xs-12">
+
+                    <!-- top bar -->
+                    {% include 'Core/Utils/topBar.html' %}
+
+                    <div id="celebrity-grid-small-container" class="celebrity-items large-grid">
+
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb1.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Tom Hardy</a></h2>
+                                <span>actor, usa</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritylist.html"><img src="{% static 'Core/images/uploads/ceb2.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Leonardo DiCaprio</a></h2>
+                                <span>actor, mexico</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb3.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Emma Stone</a></h2>
+                                <span>Actress, usa</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"> <img src="{% static 'Core/images/uploads/ceb4.jpg' %}" alt=""></a>
+
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Olga Kurylenko</a></h2>
+                                <span>Actress, sweden</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb5.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Micheal Bay</a></h2>
+                                <span>Director, france</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb6.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Martin Scorsese</a></h2>
+                                <span>Director, italy</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb7.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">TJohnson Staham</a></h2>
+                                <span>actor, uk</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb8.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Haley Bennett</a></h2>
+                                <span>actress, france</span>
+                            </div>
+                        </div>
+                        <div class="ceb-item">
+                            <a href="celebritysingle.html"><img src="{% static 'Core/images/uploads/ceb9.jpg' %}" alt=""></a>
+                            <div class="ceb-infor">
+                                <h2><a href="celebritylist.html">Teresa Palmer</a></h2>
+                                <span>actress, uk</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- pagination -->
+                    {% include 'Core/Utils/footBar.html' %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end of celebrity grid v1 section-->
+
+
+    <!-- end of body block -->
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'Core/js/Utils/years.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core/js/Utils/PaginationPimdb.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core/js/celebritygridSmall.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'Core/js/celebrityGrid.js' %}"></script>#}
+{% endblock %}

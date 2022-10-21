@@ -1,0 +1,69 @@
+<!-- use base html template -->
+{% extends 'Core/base.html' %}
+{% load static %}
+{% block title %}
+
+    <!-- Basic need -->
+    <title> تمامی فیلمها -لیست</title>
+
+{% endblock %}
+{% block description %}
+    <meta name="description" content=""/>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+
+    <!-- BEGIN | Head -->
+    {% include 'Core/Utils/head.html' %}
+    <!-- END | Head -->
+
+    <!-- BEGIN | Body -->
+    <div class="page-single movie_list" dir="ltr">
+        <div class="container">
+            <div class="row ipad-width2">
+                <!-- filter -->
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    {% include 'Core/Utils/SideBarMovie.html' %}
+                </div>
+
+                <!-- list -->
+                <div class="col-md-9 col-sm-12 col-xs-12">
+
+                    <!-- top bar -->
+                    {% include 'Core/Utils/topBar.html' %}
+
+                    <div id="container-movie-list">
+
+                        <div class="movie-item-style-2">
+                        <img src="{% static 'Core/images/uploads/mv1.jpg' %}" alt="">
+                        <div class="mv-item-infor">
+                            <h6><a href="moviesingle.html">oblivion <span>(2012)</span></a></h6>
+                            <p class="rate"><i class="ion-android-star"></i><span>8.1</span> /10</p>
+                            <p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
+                            <p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: 1 May 2015</span></p>
+                            <p>Director: <a href="#">Joss Whedon</a></p>
+                            <p>Stars: <a href="#">Robert Downey Jr.,</a> <a href="#">Chris Evans,</a> <a href="#">  Chris Hemsworth</a></p>
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <!-- pagination -->
+                    {% include 'Core/Utils/footBar.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END | Body -->
+
+    <input type="hidden" id="url_img_movie_placeholder" data-url="{% static 'Core/images/img_placeholder_grey.png' %}">
+
+    <!-- end of body block -->
+{% endblock %}
+
+{% block javascript %}
+
+    <script type="text/javascript" src="{% static 'Core/js/movielist.js' %}"></script>
+
+{% endblock %}

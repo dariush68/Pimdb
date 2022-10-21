@@ -1,0 +1,92 @@
+<!-- use base html template -->
+{% extends 'Core/base.html' %}
+{% load static %}
+{% block title %}
+
+    <!-- Basic need -->
+    <title>{{ page_title }}</title>
+    <meta name="description" content="مرجع کامل لیست بازیگران ایرانی"/>
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:type" content="website/" />
+    <meta property="og:title" content="{{ page_title }}"/>
+    <meta property="og:description" content="مرجع کامل لیست بازیگران ایرانی"/>
+    <meta property="og:url" content="{{ request.get_host }}{% url 'Core:celebritygridsmall' %}"/>
+    <meta property="og:site_name" content="بانک اطلاعات فیلم و سریال ایران" />
+    <meta property="article:tag" content="{{ page_title }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="مرجع کامل لیست بازیگران ایرانی"/>
+    <meta name="twitter:title" content="{{ page_title }}" />
+
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+
+    <!-- BEGIN | Head -->
+    {% include 'Core/Utils/head.html' %}
+
+    <!-- celebrity grid v2 section-->
+    <div class="page-single">
+        <div class="container">
+            <div class="row ipad-width2">
+
+                <!-- filter -->
+                <div class="col-md-3 col-xs-12 col-sm-12">
+                    {% include 'Core/Utils/SideBar.html' %}
+                </div>
+
+                <!-- grid -->
+                <div class="col-md-9 col-sm-12 col-xs-12">
+
+                    <!-- top bar -->
+                    {% include 'Core/Utils/topBar.html' %}
+
+                    <!-- celebrity grid container-->
+                    <div id="celebrity-grid-small-container" class="row small-grid">
+                        <div class="col-md-4">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceb21.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Leonardo DiCaprio</a></h2>
+                                    <span>actor, uk</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceb22.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Meryl Streep</a></h2>
+                                    <span>actor, Iran</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceb23.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Tom Hanks</a></h2>
+                                    <span>Director, Sweden</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- pagination -->
+                    {% include 'Core/Utils/footBar.html' %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of celebrity grid v2 section-->
+
+
+    <!-- end of body block -->
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'Core/js/Utils/years.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core/js/Utils/PaginationPimdb.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core/js/celebritygridSmall.js' %}"></script>
+{% endblock %}

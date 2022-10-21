@@ -1,0 +1,30 @@
+@media (max-width: 768px) {
+    #signup-box{
+        width: 95%;
+        border-radius: 10px !important;
+        overflow: hidden;
+        font-family: 'Yekan'
+    }
+    .form-group{
+        padding: 0;
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 768px) {
+    #signup-box{
+        width: 32%;
+        border-radius: 10px !important;
+        overflow: hidden;
+        font-family: 'Yekan'
+    }
+    .col-12{
+        display: inline-block;
+        height: fit-content;
+    }
+}
+
+textarea{
+    resize: none;
+}

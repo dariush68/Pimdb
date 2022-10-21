@@ -1,0 +1,40 @@
+<!-- use base html template -->
+{% extends 'Core/base.html' %}
+{% load static %}
+{% block title %}
+
+    <!-- Basic need -->
+    <title> تمامی فیلمها -لیست</title>
+
+{% endblock %}
+{% block description %}
+    <meta name="description" content=""/>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+{% load static%}
+
+    <!-- BEGIN | Head -->
+    <div class="page-single-2">
+        <div class="container">
+            <div class="row">
+                <div class="middle-content">
+                    <a href="index-2.html"><img class="md-logo" src="{% static 'Core/images/pimdb_red.png' %}" alt=""></a>
+                    <img src="{% static 'Core/images/uploads/err-img.png' %}" alt="">
+                    <h1>Page not found</h1>
+                    <a href="index-2.html" class="redbtn">go home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END | Head -->
+
+
+
+    <!-- end of body block -->
+{% endblock %}
+
+{% block javascript %}
+
+
+{% endblock %}

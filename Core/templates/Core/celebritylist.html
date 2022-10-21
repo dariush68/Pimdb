@@ -1,0 +1,138 @@
+<!-- use base html template -->
+{% extends 'Core/base.html' %}
+{% load static %}
+{% block title %}
+
+    <!-- Basic need -->
+    <title> تمامی فیلمها -لیست</title>
+
+{% endblock %}
+{% block description %}
+    <meta name="description" content=""/>
+{% endblock %}
+<!-- begin of body block -->
+{% block body %}
+
+
+    <!-- BEGIN | Head -->
+    {% include 'Core/Utils/head.html' %}
+    <!-- END | Head -->
+
+    <!-- celebrity list section-->
+    <div class="page-single">
+        <div class="container">
+            <div class="row ipad-width2">
+                <!-- filter -->
+                <div class="col-md-3 col-xs-12 col-sm-12">
+                    {% include 'Core/Utils/SideBar.html' %}
+                </div>
+
+                <!-- list -->
+                <div class="col-md-9 col-sm-12 col-xs-12">
+
+                    <!-- top bar -->
+                    {% include 'Core/Utils/topBar.html' %}
+
+                    <div id="celebrity-grid-small-container" class="row normal-list normal-list">
+
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist1.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Dan Stevens</a></h2>
+                                    <span>actor, usa</span>
+                                    <p>Dan Stevens was born at Croydon in Surrey on 10th October 1982. His parents are teachers. He was educated at Tonbridge School and trained in acting at the National Youth Theatre of Great Britain... </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist2.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Luke Evans</a></h2>
+                                    <span>actor, mexico</span>
+                                    <p>Luke George Evans was born in Pontypool, Wales, and grew up in Aberbargoed, in the south of Wales. He is the son of Yvonne (Lewis) and David Evans. He moved to Cardiff at the age 17...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist3.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Scarlett Johansson</a></h2>
+                                    <span>actress, france</span>
+                                    <p>Scarlett Ingrid Johansson was born in New York City. Her mother, Melanie Sloan, is from a Jewish family from the Bronx, and her father, Karsten Johansson, is a Danish-born architect, from Copenhagen...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist4.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Emma Watson</a></h2>
+                                    <span>actress, uk</span>
+                                    <p>Emma Charlotte Duerre Watson was born in Paris, France, to English parents, Jacqueline Luesby and Chris Watson, both lawyers. She moved to Oxfordshire when she was five...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist5.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Tom Hardy</a></h2>
+                                    <span>actor, italy	</span>
+                                    <p>Joan Crawford was born Lucille Fay LeSueur on March 23, 1905, in San Antonio, Texas, to Anna Belle (Johnson) and Thomas E. LeSueur, a laundry laborer. By the time she was born her parents had separated....</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist6.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Joan Crawford</a></h2>
+                                    <span>director, sweden</span>
+                                    <p>Joan Crawford was born Lucille Fay LeSueur on March 23, 1905, in San Antonio, Texas, to Anna Belle (Johnson) and Thomas E. LeSueur, a laundry laborer. By the time she was born her parents had separated....</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist7.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Margot Robbie</a></h2>
+                                    <span>actress, chile</span>
+                                    <p>Margot Robbie is an Australian actress born in Dalby, Queensland, and raised on the Gold Coast, spending much of her time at the farm belonging to her grandparents. Her mother, Sarie Kessler, is a physiotherapist....</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="{% static 'Core/images/uploads/ceblist8.jpg' %}" alt="">
+                                <div class="ceb-infor">
+                                    <h2><a href="celebritysingle.html">Jason Momoa</a></h2>
+                                    <span>actor, usa</span>
+                                    <p>Joseph Jason Namakaeha Momoa was born on August 1, 1979 in Honolulu, Hawaii. He is the son of Coni (Lemke), a photographer, and Joseph Momoa, a painter...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- pagination -->
+                    {% include 'Core/Utils/footBar.html' %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of celebrity list section-->
+
+
+    <!-- end of body block -->
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'Core/js/Utils/years.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core/js/Utils/PaginationPimdb.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core/js/celebritygridSmall.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'Core/js/celebritylist.js' %}"></script>#}
+{% endblock %}

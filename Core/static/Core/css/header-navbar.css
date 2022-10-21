@@ -1,0 +1,159 @@
+@media (max-width: 768px) {
+    #inner-header {
+        display: none;
+    }
+    #inner-header-mobile{
+        display: block;
+        margin-top: 50px;
+        position: absolute;
+        top: 0;
+        right: -250px;
+        bottom: 0;
+        z-index: 1000;
+        width: 250px;
+        height: auto;
+        background: lightgrey;
+        transition-duration: 0.3s;
+    }
+    #header-nav-mobile{
+        width: 100%;
+        margin-top: 10px;
+        padding-right: 10px;
+    }
+    #header-nav-mobile > li{
+        border-bottom: solid 1px gray;
+    }
+    #toggler-icon{
+        font-size: 22px;
+        cursor: pointer;
+        color: white;
+    }
+    #header-nav-mobile > li > span, #header-nav-mobile > li > a > span{
+        color: rgb(102, 102, 102) !important;
+        line-height: 40px;
+    }
+    #header-nav-mobile > li > span:hover, #header-nav-mobile > li > a > span:hover{
+        color: rgb(46, 122, 132) !important;
+    }
+    #materials-submenu-mobile, #companies-submenu-mobile{
+        display: none;
+        padding: 15px;
+        border-radius: 2px;
+        margin-bottom: 15px;
+    }
+    #materials-submenu-mobile > li, #companies-submenu-mobile > li{
+        line-height: 0;
+    }
+    #materials-submenu-mobile > li > a , #companies-submenu-mobile > li > a{
+        font-size: 14px;
+        color: rgb(102, 102, 102);
+    }
+    #materials-submenu-mobile > li > a:hover, #companies-submenu-mobile > li > a:hover{
+        background: none;
+        color: rgb(46, 122, 132);
+    }
+}
+@media (min-width: 768px) {
+    #inner-header-mobile {
+        display: none!important;
+    }
+    #inner-header{
+        z-index: 100;
+        height: 55px;
+        background-color: lightgray; !important;
+    }
+    #header-nav{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    #header-nav > li{
+        height: 75%;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        border-left: solid 1px gray;
+    }
+    #materials:hover, #companies:hover{
+        /*color: rgb(46, 122, 132) !important;*/
+        /*padding: 10px 0;*/
+        background-color: white;
+    }
+    #header-nav > li > a:hover > .fa-home{
+        color: rgb(46, 122, 132) !important;
+    }
+    #materials-submenu{
+        /*display: none;*/
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 100;
+        min-width: 170px;
+        background-color: lightgrey;
+        padding: 15px;
+        border-radius: 2px;
+        transform-origin: top right;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+    }
+    #materials:hover > #materials-submenu {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    #companies-submenu{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 100;
+        min-width: 170px;
+        background-color: lightgray;
+        padding: 15px;
+        border-radius: 2px;
+         transform-origin: top right;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+    }
+    #companies:hover > #companies-submenu {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    #materials-submenu > li, #companies-submenu > li{
+        line-height: 0;
+    }
+    #materials-submenu > li > a , #companies-submenu > li > a{
+        font-size: 14px;
+        color: rgb(102, 102, 102);
+    }
+    #materials-submenu > li > a:hover, #companies-submenu > li > a:hover{
+        background: none;
+        color: rgb(46, 122, 132);
+    }
+}
+
+.rotate-down{
+    -webkit-transform: rotate(-90deg);
+    -webkit-animation: rotation 350ms;
+
+    -moz-transform: rotate(-90deg);
+    -moz-animation: rotation 350ms;
+
+    -o-transform: rotate(-90deg);
+    -o-animation: rotation 350ms;
+
+    -ms-transform: rotate(-90deg);
+    color: rgb(46, 122, 132) !important;
+}

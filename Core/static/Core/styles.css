@@ -1,0 +1,86 @@
+{% load staticfiles %}
+@font-face {
+    font-family: 'IRANSans';
+    src: url("fonts/IRANSans1.ttf");
+}
+
+@font-face {
+    font-family: 'Yekan';
+    src: url("./fonts/Yekan.ttf");
+}
+@font-face {
+    font-family: 'Vazir';
+    src: url("./fonts/Vazir.ttf");
+}
+@media (min-width: 768px) {
+    .civil{
+        display: none !important;
+    }
+}
+@media (max-width: 768px) {
+    .civilprime{
+        display: none !important;
+    }
+    .imageSize{
+        width: 60%;
+    }
+}
+
+@media (min-width: 0) {
+    .col-width{
+        width: 100%;
+        float: left;
+    }
+}
+@media (min-width: 576px) {
+    .col-width{
+        width: 50%;
+        float: left;
+    }
+    .col-width-company{
+        width: 33% !important;
+        float: left !important;
+    }
+}
+@media (min-width: 950px) {
+    .col-width{
+        width: 33.33%;
+        float: left;
+    }
+    .col-width-company{
+        width: 25% !important;
+        float: left !important;
+    }
+}
+@media (min-width: 1200px) {
+    .col-width{
+        width: 25% !important;
+        float: left !important;
+    }
+    .col-width-company{
+        width: 20% !important;
+        float: left !important;
+    }
+}
+@media (min-width: 1700px) {
+    .col-width{
+        width: 20% !important;
+        float: left !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .container{
+        max-width: 100%;
+    }
+}
+@media (min-width: 992px) {
+    .container{
+        max-width: 950px!important;
+    }
+}
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1400px !important;
+    }
+}

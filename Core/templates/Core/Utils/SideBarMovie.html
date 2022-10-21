@@ -1,0 +1,57 @@
+
+{% load static %}
+<div class="sidebar">
+    <div class="searh-form">
+        <h4 class="sb-title">جست و جو فیلم</h4>
+        <form class="form-style-1 celebrity-form" action="#">
+            <div class="row">
+                <!-- Celebrity name -->
+                <div class="col-md-12 form-it">
+                    <label>نام فیلم</label>
+                    <input id="celebrity-search" type="text" placeholder="کلیدواژه ها را وارد کنید">
+                </div>
+                <!-- Celebrity Letter -->
+                <div class="col-md-12 form-it">
+                    <label>ژانر</label>
+                    <select id="select-actor-alphabet">
+                        {% include 'Core/Utils/alphabet.html' %}
+                    </select>
+                </div>
+                <!-- Category -->
+                <div class="col-md-12 form-it">
+                    <label>نمره</label>
+                    <select id="select-actor-cast">
+                        <option value="همه">همه</option>
+                        {% for cast in casts %}
+                            <option value="{{ cast.title }}">{{ cast.title }}</option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+                <!-- Year of birth -->
+                <div class="col-md-12 form-it">
+                    <label>تاریخ</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select id="select-actor-birthday-start">
+                                <option value="range">1970</option>
+                                <option value="number">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <select id="select-actor-birthday-end">
+                                <option value="range">1990</option>
+                                <option value="number">others</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <input class="submit" type="submit" value="فیلتر" onclick="event.preventDefault(); filterActor()">
+                </div>
+            </div>
+        </form>
+    </div>
+    {% include 'Core/Utils/Ads.html' %}
+
+</div>
